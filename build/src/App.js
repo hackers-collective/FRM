@@ -32,18 +32,35 @@ export default function Transactions() {
   }
 
   const txnList = txns.map((txn, index) => (
-    <h1
-      key={index} // Using index as a key since the data doesn't have a unique ID property
-      style={{
+    <td
+      
+     { /* style={{
         color: txn.isOTP ? 'red' : 'darkgreen',
         fontStyle: txn.isOTP ? 'italic' : '',
       }}
+
+      */ }
     >
       {txn.txnMode} {/* Use "txn.txnMode" instead of "txn.mode" */}
-    </h1>
+    </td>
+    <td
+      key={index} // Using index as a key since the data doesn't have a unique ID property
+    >
+      {txn.refUserNo}
+    </td>
+    <td>
+      {txn.isOTP}
+    </td>
+    <td>
+      {txn.status}
+    </td>
   ));
   
-  return <>{txnList}</>;
+  return (
+    <table>
+    {txnList}
+    </table>
+  );
 
 
 }
