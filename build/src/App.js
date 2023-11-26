@@ -42,6 +42,7 @@ export default function Transactions() {
       {txn.mode}
     </h1>
   ));
-
+  
   return <>{txnList}</>;
+
 }
