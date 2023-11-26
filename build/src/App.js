@@ -34,12 +34,12 @@ export default function Transactions() {
   const txnList = txns.map((txn, index) => (
     <td
       
-     { /* style={{
-        color: txn.isOTP ? 'red' : 'darkgreen',
-        fontStyle: txn.isOTP ? 'italic' : '',
-      }}
-
-      */ }
+     /* 
+        style={{
+          color: txn.isOTP ? 'red' : 'darkgreen',
+          fontStyle: txn.isOTP ? 'italic' : '',
+        }}
+      */
     >
       {txn.txnMode} {/* Use "txn.txnMode" instead of "txn.mode" */}
     </td>
