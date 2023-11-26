@@ -31,18 +31,19 @@ export default function Transactions() {
     return <div>Error: {error}</div>;
   }
 
-  const txnList = txns.map(txn => (
+  const txnList = txns.map((txn, index) => (
     <h1
-      key={txn.id}
+      key={index} // Using index as a key since the data doesn't have a unique ID property
       style={{
         color: txn.isOTP ? 'red' : 'darkgreen',
         fontStyle: txn.isOTP ? 'italic' : '',
       }}
     >
-      {txn.mode}
+      {txn.txnMode} {/* Use "txn.txnMode" instead of "txn.mode" */}
     </h1>
   ));
   
   return <>{txnList}</>;
+
 
 }
