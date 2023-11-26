@@ -33,7 +33,7 @@ export default function Transactions() {
 
   const txnList = txns.map((txn, index) => (
 
-  <>
+  <tr>
     <td
       
      /* 
@@ -56,12 +56,12 @@ export default function Transactions() {
     <td>
       {txn.status}
     </td>
-  </>
+  </tr>
   ));
   
   return (
     <table>
-      <tr>{txnList}</tr>
+      {txnList}
     </table>
   );
 
