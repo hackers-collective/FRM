@@ -61,6 +61,12 @@ export default function Transactions() {
   
   return (
     <table>
+      <tr>
+        <th>Mode</th>
+        <th>TXN ID</th>
+        <th>OTP Triggered?</th>
+        <th>TXN Status</th>
+      </tr>
       {txnList}
     </table>
   );
