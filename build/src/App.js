@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function Transactions() {
   const [txns, setTxns] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     // Fetch data when the component mounts
@@ -19,11 +20,16 @@ export default function Transactions() {
         setTxns(data);
       } catch (error) {
         console.error('Error fetching data:', error);
+        setError(error.message);
       }
     };
 
     fetchData();
   }, []); // Empty dependency array ensures the effect runs only once, similar to componentDidMount
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   const txnList = txns.map(txn => (
     <h1
