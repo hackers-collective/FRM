@@ -32,6 +32,8 @@ export default function Transactions() {
   }
 
   const txnList = txns.map((txn, index) => (
+
+  <>
     <td
       
      /* 
@@ -54,6 +56,7 @@ export default function Transactions() {
     <td>
       {txn.status}
     </td>
+  </>
   ));
   
   return (
