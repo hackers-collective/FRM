@@ -61,7 +61,7 @@ export default function Transactions() {
   
   return (
     <table>
-    {txnList}
+      <tr>{txnList}</tr>
     </table>
   );
 
