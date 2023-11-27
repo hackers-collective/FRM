@@ -51,7 +51,7 @@ export default function Transactions() {
       {txn.refUserNo}
     </td>
     <td>
-      {txn.isOTP}
+      {txn.isOTP ? 'true' : 'false'}
     </td>
     <td>
       {txn.status}
