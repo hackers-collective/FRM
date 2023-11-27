@@ -4,11 +4,17 @@
   font-family: 'Lato', sans-serif;
 }
 
-h1 {
-  font-size: 96px;
+.logo h1 {
+  font-size: 60vw;
   font-weight: 400;
 }
 
 #root table {
   text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .logo h1 {
+    font-size: 80vw;
+  }
 }
