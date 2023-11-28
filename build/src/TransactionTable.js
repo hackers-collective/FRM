@@ -7,7 +7,13 @@ function TransactionTable() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-
+        const response = await fetch(
+          'https://raw.githubusercontent.com/scriptkkiddie/Dataset/main/API/FinTech/Transactions.json'
+        );
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const data = await response.json();
         setTxns(data);
       } catch (error) {
         console.log('Error fetching data:', error);
