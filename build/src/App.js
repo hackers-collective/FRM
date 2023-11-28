@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import Header from './Header';
 
-export default function Transactions() {
+function Transactions() {
   const [txns, setTxns] = useState([]);
   const [error, setError] = useState(null);
 
@@ -70,6 +71,13 @@ export default function Transactions() {
       {txnList}
     </table>
   );
+}
 
-
+export default function App() {
+  return (
+    <div>
+      <Header />
+      <Transactions />
+    </div>
+  );
 }
