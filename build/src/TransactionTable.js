@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 function TransactionTable({ transactions }) {
   const [txns, setTxns] = useState([]);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     setTxns(transactions);
@@ -13,10 +12,6 @@ function TransactionTable({ transactions }) {
     updatedTxns[index].isFraudulent = !updatedTxns[index].isFraudulent;
     setTxns(updatedTxns);
   };
-    
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
 
   const txnList = txns.map((txn, index) => (
     <tr key={index}>
