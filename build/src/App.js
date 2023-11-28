@@ -7,8 +7,8 @@ export default function App() {
   const [txns, setTxns] = useState([]);
 
   const handleReport = (fraudData) => {
-    // Update state with the new fraud data
-    setTxns([...txns, fraudData]);
+    const newFraudData = { ...fraudData, isFraudulent; false };
+    setTxns([...txns, newFraudData]);
   };
 
   return (
