@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TransactionTable({ txns }) {
+function TransactionTable({ transactions }) {
   const [txns, setTxns] = useState([]);
   const [error, setError] = useState(null);
 
