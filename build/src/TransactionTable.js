@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-function TransactionTable() {
+function TransactionTable({ txns }) {
   const [txns, setTxns] = useState([]);
   const [error, setError] = useState(null);
 
