@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function TransactionTable({ transactions }) {
   const [txns, setTxns] = useState([]);
@@ -34,7 +34,7 @@ function TransactionTable({ transactions }) {
       <td>{txn.refUserNo}</td>
       <td>{txn.isOTP ? 'true' : 'false'}</td>
       <td>{txn.status}</td>
-     </tr>
+    </tr>
   ));
 
   return (
