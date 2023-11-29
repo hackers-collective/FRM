@@ -18,7 +18,7 @@ function TransactionTable({ transactions }) {
     const uniqueModes = [...new Set(txns.map((txn) => txn.txnMode))];
     return uniqueModes.map((mode) => (
       <CategoryTransactions key = {mode} transactions = {txns} category = {mode} />
-    });
+    ));
   };
 
   const txnList = txns.map((txn, index) => (
