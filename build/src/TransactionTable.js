@@ -48,6 +48,8 @@ function TransactionTable({ transactions }) {
     <div>
       <h1>All Transactions</h1>
       <button onClick={toggleView}>
+        {showFraudulentOnly ? 'Show All Transactions' : 'Show Fraudulent Transactions Only'}
+      </button>
       <table>
         <thead>
           <tr>
