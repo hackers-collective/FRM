@@ -3,6 +3,7 @@ import CategoryTransactions from './CategoryTransactions';
 
 function TransactionTable({ transactions }) {
   const [txns, setTxns] = useState([]);
+  const [showFraudulentOnly, setShowFraudulentOnly] = useState(false);
 
   useEffect(() => {
     setTxns(transactions);
@@ -14,10 +15,18 @@ function TransactionTable({ transactions }) {
     setTxns(updatedTxns);
   };
 
+  const toggleView = () => {
+    setShowFraudulentOnly(!showFraudulentOnly);
+  }
+
   const renderCategories = () => {
     const uniqueModes = [...new Set(txns.map((txn) => txn.txnMode))];
     return uniqueModes.map((mode) => (
-      <CategoryTransactions key = {mode} transactions = {txns} category = {mode} />
+      <CategoryTransactions 
+        key={mode}
+        transactions={showFraudulentOnly ? txns.filter((txn) => txn.isFraudulent) : txns}
+        category={mode}
+      />
     ));
   };
 
