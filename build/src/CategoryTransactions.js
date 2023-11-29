@@ -2,7 +2,7 @@ import React from 'react';
 
 function CategoryTransactions({ transactions, category}) {
 
-  const filteredTransactions = transaction.filter(
+  const filteredTransactions = transactions.filter(
     (txn) => txn.txnMode.toLowerCase() === category.toLowerCase()
   );
 
