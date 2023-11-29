@@ -14,6 +14,13 @@ function TransactionTable({ transactions }) {
     setTxns(updatedTxns);
   };
 
+  const renderCategories = () => {
+    const uniqueModes = [...new Set(txns.map((txn) => txn.txnMode))];
+    return uniqueModes.map((mode) => (
+      <CategoryTransactions key = {mode} transactions = {txns} category = {mode} />
+    });
+  };
+
   const txnList = txns.map((txn, index) => (
     <tr key={index}>
       <td>{txn.txnMode}</td>
