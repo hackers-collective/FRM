@@ -47,6 +47,7 @@ function TransactionTable({ transactions }) {
   return (
     <div>
       <h1>All Transactions</h1>
+      <button onClick={toggleView}>
       <table>
         <thead>
           <tr>
