@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CategoryTransactions from './CategoryTransactions';
 
 function TransactionTable({ transactions }) {
   const [txns, setTxns] = useState([]);
@@ -28,18 +29,22 @@ function TransactionTable({ transactions }) {
   ));
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Mode</th>
-          <th>TXN ID</th>
-          <th>OTP Triggered?</th>
-          <th>TXN Status</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>{txnList}</tbody>
-    </table>
+    <div>
+      <h1>All Transactions</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Mode</th>
+            <th>TXN ID</th>
+            <th>OTP Triggered?</th>
+            <th>TXN Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>{txnList}</tbody>
+      </table>
+      {renderCategories()}
+    </div>
   );
 }
 
