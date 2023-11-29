@@ -43,7 +43,7 @@ function FraudForm({ onReport }) {
       <form>
         <label>
           Transaction Mode:
-          <select value={txnMode} onChange={(e) => setTxnMode(e.target.value)} />
+          <select value={txnMode} onChange={(e) => setTxnMode(e.target.value)}>
             <option value="">Select Transaction Mode</option>
             {txnModesOptions.map((mode) => (
               <option key={mode} value={mode}>
@@ -51,6 +51,7 @@ function FraudForm({ onReport }) {
               </option>
             ))}
           </select>
+          
         </label>
         <label>
           Reference User Number:
@@ -70,7 +71,7 @@ function FraudForm({ onReport }) {
         </label>
         <label>
           Transaction Status:
-          <select value={status} onChange={(e) => setStatus(e.target.value)} />
+          <select value={status} onChange={(e) => setStatus(e.target.value)}>
             <option value="">Select Status</option>
             {statusOptions.map((s) => (
               <option key={s} value={s}>
