@@ -42,7 +42,14 @@ function TransactionTable({ transactions }) {
       txn.status.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const txnList = txns.map((txn, index) => (
+  const txnList = txns
+    .filter(
+      (txn) =>
+        txn.txnMode.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        txn.refUserNo.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        txn.status.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .map((txn, index) => (
     <tr key={index}>
       <td>{txn.txnMode}</td>
       <td>{txn.refUserNo}</td>
