@@ -4,6 +4,7 @@ import CategoryTransactions from './CategoryTransactions';
 function TransactionTable({ transactions }) {
   const [txns, setTxns] = useState([]);
   const [showFraudulentOnly, setShowFraudulentOnly] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     setTxns(transactions);
@@ -19,6 +20,10 @@ function TransactionTable({ transactions }) {
     setShowFraudulentOnly(!showFraudulentOnly);
   }
 
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
   const renderCategories = () => {
     const uniqueModes = [...new Set(txns.map((txn) => txn.txnMode))];
     return uniqueModes.map((mode) => (
@@ -29,6 +34,13 @@ function TransactionTable({ transactions }) {
       />
     ));
   };
+
+  const filteredTxns = txns.filter(
+    (txn) =>
+      txn.txnMode.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      txn.refUserNo.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      txn.status.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const txnList = txns.map((txn, index) => (
     <tr key={index}>
@@ -47,6 +59,12 @@ function TransactionTable({ transactions }) {
   return (
     <div>
       <h1>All Transactions</h1>
+      <div>
+        <label>
+          Search Transactions:
+          <input type="text" value={searchTerm} onChange={handleSearch} />
+        </label>
+      </div>
       <button onClick={toggleView}>
         {showFraudulentOnly ? 'Show All Transactions' : 'Show Fraudulent Transactions Only'}
       </button>
