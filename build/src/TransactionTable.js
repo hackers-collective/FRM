@@ -45,6 +45,7 @@ function TransactionTable({ transactions }) {
     .map((txn, index) => (
     <tr key={index}>
       <td>{txn.txnMode}</td>
+      <td>{txn.txnDateTime}</td>
       <td>{txn.refUserNo}</td>
       <td>{txn.isOTP ? 'true' : 'false'}</td>
       <td>{txn.status}</td>
@@ -73,6 +74,7 @@ function TransactionTable({ transactions }) {
           <tr>
             <th>Mode</th>
             <th>TXN ID</th>
+            <th>TXN Date/Time</th>
             <th>OTP Triggered?</th>
             <th>TXN Status</th>
             <th>Actions</th>
