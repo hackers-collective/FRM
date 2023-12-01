@@ -47,7 +47,7 @@ function TransactionTable({ transactions }) {
 
     filteredTxns.sort((a, b) => {
       if (a[sortCriteria] < b[sortCriteria]) return -1;
-      if (a[sortCriteria] > b[sortCriteria] return 1;
+      if (a[sortCriteria] > b[sortCriteria]) return 1;
       return 0;
     });
 
