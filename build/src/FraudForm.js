@@ -70,6 +70,7 @@ function FraudForm({ onReport }) {
             type="text"
             value={txnDateTime}
             onChange={(e) => setTxnDateTime(e.target.value)}
+          />
         </label>
         <label>
           OTP Triggered:
