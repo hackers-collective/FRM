@@ -12,11 +12,20 @@ function TransactionTable({ transactions }) {
     setTxns(transactions);
   }, [transactions]);
 
-  const handleTagFraud = (index) => {
-    const updatedTxns = [...txns];
-    updatedTxns[index].isFraudulent = !updatedTxns[index].isFraudulent;
+const handleTagFraud = (txnId) => {
+  try {
+    const updatedTxns = txns.map((txn) => {
+      if (txn.txnId === txnId) {
+        return { ...txn, isFraudulent: !txn.isFraudulent };
+      }
+      return txn;
+    });
+
     setTxns(updatedTxns);
-  };
+  } catch (error) {
+    console.error('Error in handleTagFraud:', error);
+  }
+};
 
   const toggleView = () => {
     setShowFraudulentOnly(!showFraudulentOnly);
@@ -69,24 +78,24 @@ function TransactionTable({ transactions }) {
     ));
   };
 
-  const txnList = getFilteredAndSortedTxns().map((txn, index) => (
-    <tr key={index}>
-      <td>{txn.txnId}</td>
-      <td>{txn.txnDateTime}</td>
-      <td>{txn.txnMode}</td>
-      <td>{txn.payerAccount}</td>
-      <td>{txn.payerIFSC}</td>
-      <td>{txn.payeeAccount}</td>
-      <td>{txn.payeeIFSC}</td>
-      <td>{txn.isOTP ? 'true' : 'false'}</td>
-      <td>{txn.status}</td>
-      <td>
-        <button onClick={() => handleTagFraud(index)}>
-          {txn.isFraudulent ? 'Untag Fraud' : 'Tag Fraud'}
-        </button>
-      </td>
-    </tr>
-  ));
+const txnList = getFilteredAndSortedTxns().map((txn) => (
+  <tr key={txn.txnId}>
+    <td>{txn.txnId}</td>
+    <td>{txn.txnDateTime}</td>
+    <td>{txn.txnMode}</td>
+    <td>{txn.payerAccount}</td>
+    <td>{txn.payerIFSC}</td>
+    <td>{txn.payeeAccount}</td>
+    <td>{txn.payeeIFSC}</td>
+    <td>{txn.isOTP ? 'true' : 'false'}</td>
+    <td>{txn.status}</td>
+    <td>
+      <button onClick={() => handleTagFraud(txn.txnId)}>
+        {txn.isFraudulent ? 'Untag Fraud' : 'Tag Fraud'}
+      </button>
+    </td>
+  </tr>
+));
 
   return (
     <div>
