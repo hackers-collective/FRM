@@ -12,13 +12,11 @@ function TransactionTable({ transactions }) {
     setTxns(transactions);
   }, [transactions]);
 
-const handleTagFraud = (index) => {
-  const updatedTxns = [...transactions];
-  updatedTxns[index] = { ...updatedTxns[index], isFraudulent: !updatedTxns[index].isFraudulent };
-  // Pass the updated transactions back to the parent component
-  onTagFraud(updatedTxns);
-};
-
+  const handleTagFraud = (index) => {
+    const updatedTxns = [...txns];
+    updatedTxns[index].isFraudulent = !updatedTxns[index].isFraudulent;
+    setTxns(updatedTxns);
+  };
 
   const toggleView = () => {
     setShowFraudulentOnly(!showFraudulentOnly);
@@ -30,10 +28,6 @@ const handleTagFraud = (index) => {
 
   const handleModeChange = (e) => {
     setSelectedMode(e.target.value);
-  };
-
-  const handleSortChange = (e) => {
-    setSortCriteria(e.target.value);
   };
 
   const getFilteredAndSortedTxns = () => {
@@ -53,42 +47,44 @@ const handleTagFraud = (index) => {
 
     filteredTxns.sort((a, b) => {
       if (a[sortCriteria] < b[sortCriteria]) return -1;
-      if (a[sortCriteria] > b[sortCriteria]) return 1;
+      if (a[sortCriteria] > b[sortCriteria] return 1;
       return 0;
     });
 
     return filteredTxns;
   };
 
-  const renderCategories = () => {
-    const uniqueModes = [...new Set(txns.map((txn) => txn.txnMode))];
-    return uniqueModes.map((mode) => (
-      <CategoryTransactions 
-        key={mode}
-        transactions={showFraudulentOnly ? txns.filter((txn) => txn.isFraudulent) : txns}
-        category={mode}
-      />
-    ));
-  };
+  
 
-const txnList = getFilteredAndSortedTxns().map((txn) => (
-  <tr key={txn.txnId}>
-    <td>{txn.txnId}</td>
-    <td>{txn.txnDateTime}</td>
-    <td>{txn.txnMode}</td>
-    <td>{txn.payerAccount}</td>
-    <td>{txn.payerIFSC}</td>
-    <td>{txn.payeeAccount}</td>
-    <td>{txn.payeeIFSC}</td>
-    <td>{txn.isOTP ? 'true' : 'false'}</td>
-    <td>{txn.status}</td>
-    <td>
-      <button onClick={() => handleTagFraud(txn.txnId)}>
-        {txn.isFraudulent ? 'Untag Fraud' : 'Tag Fraud'}
-      </button>
-    </td>
-  </tr>
-));
+  // const renderCategories = () => {
+  //   const uniqueModes = [...new Set(txns.map((txn) => txn.txnMode))];
+  //   return uniqueModes.map((mode) => (
+  //     <CategoryTransactions 
+  //       key={mode}
+  //       transactions={showFraudulentOnly ? txns.filter((txn) => txn.isFraudulent) : txns}
+  //       category={mode}
+  //     />
+  //   ));
+  // };
+
+  const txnList = getFilteredAndSortedTxns().map((txn, index) => (
+    <tr key={index}>
+      <td>{txn.txnId}</td>
+      <td>{txn.txnDateTime}</td>
+      <td>{txn.txnMode}</td>
+      <td>{txn.payerAccount}</td>
+      <td>{txn.payerIFSC}</td>
+      <td>{txn.payeeAccount}</td>
+      <td>{txn.payeeIFSC}</td>
+      <td>{txn.isOTP ? 'true' : 'false'}</td>
+      <td>{txn.status}</td>
+      <td>
+        <button onClick={() => handleTagFraud(index)}>
+          {txn.isFraudulent ? 'Untag Fraud' : 'Tag Fraud'}
+        </button>
+      </td>
+    </tr>
+  ));
 
   return (
     <div>
@@ -108,7 +104,6 @@ const txnList = getFilteredAndSortedTxns().map((txn) => (
             <option value="IMPS">IMPS</option>
           </select>
         </label>
-      </div>
       <div>
         <label>
           Sort By:
