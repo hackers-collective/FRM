@@ -30,6 +30,10 @@ function TransactionTable({ transactions }) {
     setSelectedMode(e.target.value);
   };
 
+  const handleSortChange = (e) => {
+    setSortCriteria(e.target.value);
+  };
+
   const getFilteredAndSortedTxns = () => {
     let filteredTxns = txns;
 
