@@ -104,6 +104,7 @@ function TransactionTable({ transactions }) {
             <option value="IMPS">IMPS</option>
           </select>
         </label>
+      </div>
       <div>
         <label>
           Sort By:
