@@ -6,6 +6,7 @@ const statusOptions = ['Success', 'Failed', 'Pending'];
 function FraudForm({ onReport }) {
   const [txnMode, setTxnMode] = useState('');
   const [refUserNo, setRefUserNo] = useState('');
+  const [txnDateTime, setTxnDateTime] = useState('');
   const [isOTP, setIsOTP] = useState(false);
   const [status, setStatus] = useState('');
   const [amount, setAmount] = useState('');
@@ -20,6 +21,7 @@ function FraudForm({ onReport }) {
     const fraudData = {
       txnMode,
       refUserNo,
+      txnDateTime,
       isOTP,
       status,
       amount,
@@ -29,12 +31,13 @@ function FraudForm({ onReport }) {
 
     onReport(fraudData);
 
-    setTxnMode('');
-    setRefUserNo('');
-    setIsOTP(false);
-    setStatus('');
-    setAmount('');
-    setDescription('');
+    // setTxnMode('');
+    // setRefUserNo('');
+    // setTxnDateTime('');
+    // setIsOTP(false);
+    // setStatus('');
+    // setAmount('');
+    // setDescription('');
   };
 
   return (
@@ -60,6 +63,13 @@ function FraudForm({ onReport }) {
             value={refUserNo} 
             onChange={(e) => setRefUserNo(e.target.value)} 
           />
+        </label>
+        <label>
+          Transaction Date/Time:
+          <input
+            type="text"
+            value={txnDateTime}
+            onChange={(e) => setTxnDateTime(e.target.value)}
         </label>
         <label>
           OTP Triggered:
