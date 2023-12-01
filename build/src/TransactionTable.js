@@ -13,11 +13,10 @@ function TransactionTable({ transactions }) {
   }, [transactions]);
 
 const handleTagFraud = (index) => {
-  setTxns((prevTxns) => {
-    const updatedTxns = [...prevTxns];
-    updatedTxns[index] = { ...updatedTxns[index], isFraudulent: !updatedTxns[index].isFraudulent };
-    return updatedTxns;
-  });
+  const updatedTxns = [...transactions];
+  updatedTxns[index] = { ...updatedTxns[index], isFraudulent: !updatedTxns[index].isFraudulent };
+  // Pass the updated transactions back to the parent component
+  onTagFraud(updatedTxns);
 };
 
 
