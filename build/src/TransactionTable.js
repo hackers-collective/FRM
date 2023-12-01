@@ -58,18 +58,16 @@ function TransactionTable({ transactions }) {
     return filteredTxns;
   };
 
-  
-
-  // const renderCategories = () => {
-  //   const uniqueModes = [...new Set(txns.map((txn) => txn.txnMode))];
-  //   return uniqueModes.map((mode) => (
-  //     <CategoryTransactions 
-  //       key={mode}
-  //       transactions={showFraudulentOnly ? txns.filter((txn) => txn.isFraudulent) : txns}
-  //       category={mode}
-  //     />
-  //   ));
-  // };
+  const renderCategories = () => {
+    const uniqueModes = [...new Set(txns.map((txn) => txn.txnMode))];
+    return uniqueModes.map((mode) => (
+      <CategoryTransactions 
+        key={mode}
+        transactions={showFraudulentOnly ? txns.filter((txn) => txn.isFraudulent) : txns}
+        category={mode}
+      />
+    ));
+  };
 
   const txnList = getFilteredAndSortedTxns().map((txn, index) => (
     <tr key={index}>
