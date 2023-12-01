@@ -12,20 +12,14 @@ function TransactionTable({ transactions }) {
     setTxns(transactions);
   }, [transactions]);
 
-const handleTagFraud = (txnId) => {
-  try {
-    const updatedTxns = txns.map((txn) => {
-      if (txn.txnId === txnId) {
-        return { ...txn, isFraudulent: !txn.isFraudulent };
-      }
-      return txn;
-    });
-
-    setTxns(updatedTxns);
-  } catch (error) {
-    console.error('Error in handleTagFraud:', error);
-  }
+const handleTagFraud = (index) => {
+  setTxns((prevTxns) => {
+    const updatedTxns = [...prevTxns];
+    updatedTxns[index] = { ...updatedTxns[index], isFraudulent: !updatedTxns[index].isFraudulent };
+    return updatedTxns;
+  });
 };
+
 
   const toggleView = () => {
     setShowFraudulentOnly(!showFraudulentOnly);
