@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const txnModesOptions = ['UPI', 'IMPS', 'NEFT', 'WALLET'];
+const txnModesOptions = ['UPI', 'IMPS', 'NEFT', 'WALLET', 'AEPS'];
 const statusOptions = ['Success', 'Failed', 'Pending'];
 
 function FraudForm({ onReport }) {
