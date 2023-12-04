@@ -62,10 +62,38 @@ export default function Transactions() {
   return (
     <table>
       <tr>
-        <th>Mode</th>
-        <th>TXN ID</th>
-        <th>OTP Triggered?</th>
-        <th>TXN Status</th>
+        <th>REF_TXN_NO</th>
+        <th>DAT_TXN_PROCESSING</th>
+        <th>REF_SUB_SEQ_NO</th>
+        <th>COD_TXN_MNEMONIC</th>
+        <th>COD_ACCT_NO</th>
+        <th>COD_DRCR</th>
+        <th>AMT_TXN_LCY</th>
+        <th>TXT_TXN_DESC</th>
+        <th>TXT_TRAN_PARTICULAR</th>
+        <th>TXT_TXN_NARRATIVE_TO</th>
+        <th>REF_TXN_NO_ORG</th>
+        <th>COD_AUTH_ID</th>
+        <th>REF_USR_NO</th>
+        <th>COD_CHNL_ID</th>
+        <th>AMT_REFUND</th>
+        <th>COD_ACCT_NO_FROM</th>
+        <th>COD_ACCT_NO_TO</th>
+        <th>COD_CUST_ID_FROM</th>
+        <th>COD_CUST_ID_TO</th>
+        <th>COD_CUST_TYP_FROM</th>
+        <th>COD_CUST_TYP_TO</th>
+        <th>DAT_TXN_VALUE</th>
+        <th>REF_USR_NO_ORG</th>
+        <th>COD_GL_ACCT</th>
+        <th>COD_PROD</th>
+        <th>TXT_ADDL_DETAILS_FROM</th>
+        <th>TXT_ADDL_DETAILS_TO</th>
+        <th>TXT_DIFF_CHARGE_PARAM1</th>
+        <th>TXT_DIFF_CHARGE_PARAM2</th>
+        <th>TXT_DIFF_CHARGE_PARAM3</th>
+        <th>COD_CC_BRN</th>
+        <th>DAT_TXN_POSTING</th>
       </tr>
       {txnList}
     </table>
