@@ -34,9 +34,8 @@ export default function Transactions() {
   const txnList = txns.map((txn, index) => (
     <tr key={index}>
       <td>{txn.REF_TXN_NO}</td>
-      <td>{txn.refUserNo}</td>
-      <td>{txn.isOTP ? 'true' : 'false'}</td>
-      <td>{txn.status}</td>
+      <td>{txn.DAT_TXN_PROCESSING}</td>
+      <td>{txn.REF_SUB_SEQ_NO}</td>
     </tr>
   ));
   
