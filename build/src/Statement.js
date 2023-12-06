@@ -45,7 +45,7 @@ export default function Transactions() {
         <th>REF_TXN_NO</th>
         <th>DAT_TXN_PROCESSING</th>
         <th>REF_SUB_SEQ_NO</th>
-        /* <th>COD_TXN_MNEMONIC</th>
+        {/* <th>COD_TXN_MNEMONIC</th>
         <th>COD_ACCT_NO</th>
         <th>COD_DRCR</th>
         <th>AMT_TXN_LCY</th>
@@ -73,7 +73,7 @@ export default function Transactions() {
         <th>TXT_DIFF_CHARGE_PARAM2</th>
         <th>TXT_DIFF_CHARGE_PARAM3</th>
         <th>COD_CC_BRN</th>
-        <th>DAT_TXN_POSTING</th> */
+        <th>DAT_TXN_POSTING</th> */}
       </tr>
       {txnList}
     </table>
