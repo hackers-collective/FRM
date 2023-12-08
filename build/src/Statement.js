@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Transactions() {
+export default function Statement() {
   const [txns, setTxns] = useState([]);
   const [error, setError] = useState(null);
+  const [favourites, setFavorites] = useState([]);
 
   useEffect(() => {
     // Fetch data when the component mounts
@@ -27,23 +28,39 @@ export default function Transactions() {
     fetchData();
   }, []); // Empty dependency array ensures the effect runs only once, similar to componentDidMount
 
+  const handleFavorite = (index) => {
+
+    setFavorites((prevFavorites) => {
+
+      const newFavorites = [...prevFavorites];
+      const isCurrentlyFavorited = newFavorites.includes(index);
+
+      if (isCurrentlyFavorited) {
+        newFavorites.splice(newFavorites.indexOf(index), 1);
+      } else {
+        newFavorites.push(index);
+      }
+
+      return newFavorites;
+
+    });
+
+  };
+  
   if (error) {
     return <div>Error: {error}</div>;
   }
 
   const txnList = txns.map((txn, index) => (
-    <tr key={index}>
+    <tr key={index} style={{ fontWeight: favorites.includes(index) ? 'bold' : 'normal', color: favorites.includes(index) ? 'red' : 'black' }}>
       <td>{txn.REF_TXN_NO}</td>
       <td>{txn.DAT_TXN_PROCESSING}</td>
       <td>{txn.REF_SUB_SEQ_NO}</td>
-      <td><button>Favourite</button></td>
-    {
-    /*
-    <button onClick={() => handleTagFraud(index)}>
-      {txn.isFraudulent ? 'Untag Fraud' : 'Tag Fraud'}
-    </button>
-    */
-    }
+      <td>
+        <button onClick={() => handleFavorite(index)}>
+          {favorites.includes(index) ? 'Liked' : 'Favourite'}
+        </button>
+      </td>
     </tr>
   ));
   
