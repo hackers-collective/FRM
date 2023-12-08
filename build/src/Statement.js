@@ -37,6 +37,13 @@ export default function Transactions() {
       <td>{txn.DAT_TXN_PROCESSING}</td>
       <td>{txn.REF_SUB_SEQ_NO}</td>
       <td><button>Favourite</button></td>
+    {
+    /*
+    <button onClick={() => handleTagFraud(index)}>
+      {txn.isFraudulent ? 'Untag Fraud' : 'Tag Fraud'}
+    </button>
+    */
+    }
     </tr>
   ));
   
