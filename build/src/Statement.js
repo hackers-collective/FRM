@@ -36,6 +36,7 @@ export default function Transactions() {
       <td>{txn.REF_TXN_NO}</td>
       <td>{txn.DAT_TXN_PROCESSING}</td>
       <td>{txn.REF_SUB_SEQ_NO}</td>
+      <td><button>Favourite</button>
     </tr>
   ));
   
