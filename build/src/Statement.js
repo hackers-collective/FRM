@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 export default function Statement() {
   const [txns, setTxns] = useState([]);
   const [error, setError] = useState(null);
-  const [favourites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     // Fetch data when the component mounts
